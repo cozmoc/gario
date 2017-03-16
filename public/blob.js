@@ -28,7 +28,7 @@ function Blob(x, y, r, n, c) {
   }
 
   this.kill = function(other){
-    other = new Blob(random(width), random(height), random(8, 24),rands[Math.floor(Math.random()*rands.length)],colors[Math.floor(Math.random()*colors.length)]);
+    return new Blob(random(width), random(height), random(8, 24),rands[Math.floor(Math.random()*rands.length)],colors[Math.floor(Math.random()*colors.length)]);
   }
 
   this.constrain = function() {

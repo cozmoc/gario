@@ -56,7 +56,7 @@ function draw() {
       textSize(blobs[i].r/3);
       text(blobs[i].n, blobs[i].x, blobs[i].y + (blobs[i].r/10));
       if (blob.eats(blobs[i].x,blobs[i].y,blobs[i].r)) {
-        blob.kill(blobs[i])
+        blobs[i]=blob.kill(blobs[i])
       }
     }  
     // blobs[i].show();
