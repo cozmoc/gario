@@ -5,7 +5,7 @@ var blob;
 var blobs = [];
 var zoom = 1;
 var rands=["Pizza","Pasta","Olive","Falafel","BBQ","Cupcake","Donut","Sushi","Jelly","Noodles","Toast","Waffles","Yogurt"]
-var colors = ['rgb(66, 134, 244)','rgb(65, 244, 68)','rgb(65, 244, 235)','rgb(239, 187, 31)','rgb(198, 119, 255)','rgb(255, 119, 221)','rgb(96, 219, 198)']
+var colors = ['rgb(66, 134, 244)','rgb(65, 244, 68)','rgb(239, 187, 31)','rgb(198, 119, 255)','rgb(255, 119, 221)']
 // var colors = ['rgb(100%,0%,10%)','rgb(10%,10%,10%)','rgb(50%,10%,40%)','rgb(0%,20%,70%)','rgb(0%,80%,10%)','rgb(70%,60%,10%)','rgb(12%,4%,80%)','rgb(50%,50%,30%)','rgb(90%,40%,20%)']
 function setup() {
   var canvas = createCanvas(1000, 1000);
@@ -54,7 +54,10 @@ function draw() {
       fill(0);
       textAlign(CENTER);
       textSize(blobs[i].r/3);
-      text(blobs[i].n, blobs[i].x, blobs[i].y + (blobs[i].r/10)); 
+      text(blobs[i].n, blobs[i].x, blobs[i].y + (blobs[i].r/10));
+      if (blob.eats(blobs[i])) {
+        blobs.splice(i, 1);
+      } 
     }  
     // blobs[i].show();
     // if (blob.eats(blobs[i])) {
