@@ -71,7 +71,8 @@ function draw() {
   var data = {
     x: blob.pos.x,
     y: blob.pos.y,
-    r: blob.r
+    r: blob.r,
+    n: blob.n
   };
   socket.emit('update', data);
 
