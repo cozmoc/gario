@@ -12,7 +12,7 @@ var blobs = [];
 var zoom = 1;
 
 function setup() {
-  createCanvas(600, 600);
+  createCanvas(1000, 1000);
   // Start a socket connection to the server
   // Some day we would run this server somewhere else
   socket = io.connect('http://gario.herokuapp.com');
@@ -36,7 +36,7 @@ function setup() {
 }
 
 function draw() {
-  background(0);
+  background(255,255,255);
   //console.log(blob.pos.x, blob.pos.y);
 
   translate(width / 2, height / 2);
