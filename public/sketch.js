@@ -4,7 +4,7 @@ var blob;
 
 var blobs = [];
 var zoom = 1;
-var rands=["Sameer","Sob7i","Amer","Stupid","Ahmad","Yousef","Lindsey"]
+var rands=["Pizza","Pasta","Olive","Falafel","BBQ","Cupcake","Donut","Sushi","Jelly","Noodles","Toast","Waffles","Yogurt"]
 var colors = ['rgb(66, 134, 244)','rgb(65, 244, 68)','rgb(65, 244, 235)','rgb(239, 187, 31)','rgb(198, 119, 255)','rgb(255, 119, 221)','rgb(96, 219, 198)']
 // var colors = ['rgb(100%,0%,10%)','rgb(10%,10%,10%)','rgb(50%,10%,40%)','rgb(0%,20%,70%)','rgb(0%,80%,10%)','rgb(70%,60%,10%)','rgb(12%,4%,80%)','rgb(50%,50%,30%)','rgb(90%,40%,20%)']
 function setup() {

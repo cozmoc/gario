@@ -34,5 +34,9 @@ function Blob(x, y, r, n, c) {
   this.show = function() {
     fill(this.c);
     ellipse(this.pos.x, this.pos.y, this.r * 2, this.r * 2);
+    fill(0);
+    textAlign(CENTER);
+    textSize(this.r/3);
+    text(this.n, this.x, this.y + (this.r/10));
   }
 }
