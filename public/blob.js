@@ -1,7 +1,8 @@
-function Blob(x, y, r, n) {
+function Blob(x, y, r, n, c) {
   this.pos = createVector(x, y);
   this.r = r;
   this.n = n;
+  this.c = c;
   this.vel = createVector(0, 0);
 
   this.update = function() {
@@ -31,7 +32,7 @@ function Blob(x, y, r, n) {
   }
 
   this.show = function() {
-    fill(0,255,0);
+    fill(this.c);
     ellipse(this.pos.x, this.pos.y, this.r * 2, this.r * 2);
   }
 }

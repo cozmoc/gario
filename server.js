@@ -8,12 +8,13 @@
 
 var blobs = [];
 
-function Blob(id, x, y, r, n) {
+function Blob(id, x, y, r, n, c) {
   this.id = id;
   this.x = x;
   this.y = y;
   this.r = r;
   this.n = n;
+  this.c = c;
 }
 
 // Using express: http://expressjs.com/
@@ -59,7 +60,7 @@ io.sockets.on('connection',
     socket.on('start',
       function(data) {
         console.log(socket.id + " " + data.x + " " + data.y + " " + data.r);
-        var blob = new Blob(socket.id, data.x, data.y, data.r, data.n);
+        var blob = new Blob(socket.id, data.x, data.y, data.r, data.n, data.c);
         blobs.push(blob);
       }
     );
@@ -77,6 +78,7 @@ io.sockets.on('connection',
         blob.y = data.y;
         blob.r = data.r;
         blob.n = data.n;
+        blob.c = data.c;
       }
     );
 
