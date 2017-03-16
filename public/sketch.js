@@ -49,16 +49,19 @@ function draw() {
   translate(-blob.pos.x, -blob.pos.y);
 
   for (var i = blobs.length - 1; i >= 0; i--) {
+
+    fill(0);
+    textAlign(CENTER);
+    textSize(blobs[i].r/2);
+    text(rands[i], blobs[i].x, blobs[i].y + (blobs[i].r/10));
+
     var id = blobs[i].id;
     if (id !== socket.id) {
       
       fill(255, 0, 0);
       ellipse(blobs[i].x, blobs[i].y, blobs[i].r * 2, blobs[i].r * 2);
     }
-      fill(0);
-      textAlign(CENTER);
-      textSize(blobs[i].r/2);
-      text(rands[i], blobs[i].x, blobs[i].y + (blobs[i].r/10));
+      
     
     // blobs[i].show();
     // if (blob.eats(blobs[i])) {
