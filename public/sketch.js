@@ -53,7 +53,7 @@ function draw() {
     if (id !== socket.id) {
       fill(255, 0, 0);
       ellipse(blobs[i].x, blobs[i].y, blobs[i].r * 2, blobs[i].r * 2);
-    }
+    } 
     fill(0);
     textAlign(CENTER);
     textSize(blobs[i].r/3);
