@@ -57,7 +57,7 @@ function draw() {
       text(blobs[i].n, blobs[i].x, blobs[i].y + (blobs[i].r/10));
       if (blob.eats(blobs[i].x,blobs[i].y,blobs[i].r)) {
         blobs.splice(i, 1);
-        alert('you fucked him bruh')
+        
       }
     }  
     // blobs[i].show();
