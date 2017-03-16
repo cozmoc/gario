@@ -54,12 +54,12 @@ function draw() {
       
       fill(255, 0, 0);
       ellipse(blobs[i].x, blobs[i].y, blobs[i].r * 2, blobs[i].r * 2);
-
+    }
       fill(0);
       textAlign(CENTER);
-      textSize(blobs[i].r);
+      textSize(blobs[i].r/2);
       text(rands[i], blobs[i].x, blobs[i].y + (blobs[i].r/10));
-    }
+    
     // blobs[i].show();
     // if (blob.eats(blobs[i])) {
     //   blobs.splice(i, 1);
