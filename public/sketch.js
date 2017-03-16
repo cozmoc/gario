@@ -50,10 +50,11 @@ function draw() {
   for (var i = blobs.length - 1; i >= 0; i--) {
     var id = blobs[i].id;
     if (id.substring(2, id.length) !== socket.id) {
-      fill(0, 0, 255);
+      console.log([id.substring(2, id.length),socket.id])
+      fill(255, 0, 0);
       ellipse(blobs[i].x, blobs[i].y, blobs[i].r * 2, blobs[i].r * 2);
 
-      fill(255);
+      fill(0);
       textAlign(CENTER);
       textSize(4);
       text(blobs[i].id, blobs[i].x, blobs[i].y + blobs[i].r);
