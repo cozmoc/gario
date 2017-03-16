@@ -20,7 +20,8 @@ function setup() {
   var data = {
     x: blob.pos.x,
     y: blob.pos.y,
-    r: blob.r
+    r: blob.r,
+    n: blob.n
   };
   socket.emit('start', data);
 
@@ -51,7 +52,7 @@ function draw() {
       fill(0);
       textAlign(CENTER);
       textSize(blobs[i].r/3);
-      text(rands[i], blobs[i].x, blobs[i].y + (blobs[i].r/10)); 
+      text(blobs[i].n, blobs[i].x, blobs[i].y + (blobs[i].r/10)); 
     }  
     // blobs[i].show();
     // if (blob.eats(blobs[i])) {
