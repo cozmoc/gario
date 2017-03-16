@@ -18,7 +18,7 @@ function Blob(x, y, r, n, c) {
     var d = p5.Vector.dist(this.pos, other.pos);
     if (d < this.r + other.r && other.r < this.r) {
       var sum = PI * this.r * this.r + PI * other.r * other.r;
-      this.r = sqrt(sum / PI);
+      //this.r = sqrt(sum / PI);
       //this.r += other.r;
       return true;
     } else {
