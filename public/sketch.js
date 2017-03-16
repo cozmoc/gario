@@ -55,11 +55,9 @@ function draw() {
       textAlign(CENTER);
       textSize(blobs[i].r/3);
       text(blobs[i].n, blobs[i].x, blobs[i].y + (blobs[i].r/10));
-      setTimeout(function(){
-        if (blob.eats(blobs[i])) {
+      if (blob.eats(blobs[i].x,blobs[i].y)) {
         console.log('eat')
-        }
-      },1000)
+      }
     }  
     // blobs[i].show();
     // if (blob.eats(blobs[i])) {

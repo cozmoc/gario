@@ -14,16 +14,16 @@ function Blob(x, y, r, n, c) {
     this.pos.add(this.vel);
   }
 
-  this.eats = function(other) {
-    var d = p5.Vector.dist(this.pos, other.pos);
-    if (d < this.r + other.r && other.r < this.r) {
-      var sum = PI * this.r * this.r + PI * other.r * other.r;
-      //this.r = sqrt(sum / PI);
-      //this.r += other.r;
-      return true;
-    } else {
-      return false;
-    }
+  this.eats = function(otherx,othery) {
+    if (this.pos.x - otherx <= this.r || this.pos.y - othery <= this.r) 
+      if (other.r < this.r) {
+        var sum = PI * this.r * this.r + PI * other.r * other.r;
+        //this.r = sqrt(sum / PI);
+        //this.r += other.r;
+        return true;
+      } else {
+        return false;
+      }
   }
 
   this.constrain = function() {
