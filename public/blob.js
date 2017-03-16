@@ -15,7 +15,7 @@ function Blob(x, y, r, n, c) {
   }
 
   this.eats = function(otherx,othery,otherr) {
-    if (this.pos.x - otherx <= this.r+otherr || this.pos.y - othery <= this.r+otherr) 
+    if ( Math.abs(this.pos.x - otherx) <= this.r+otherr || Math.abs(this.pos.y - othery) <= this.r+otherr) 
       if (otherr < this.r) {
         //var sum = PI * this.r * this.r + PI * other.r * other.r;
         //this.r = sqrt(sum / PI);
