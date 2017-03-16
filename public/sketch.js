@@ -53,11 +53,12 @@ function draw() {
     if (id !== socket.id) {
       fill(255, 0, 0);
       ellipse(blobs[i].x, blobs[i].y, blobs[i].r * 2, blobs[i].r * 2);
-    } 
-    fill(0);
-    textAlign(CENTER);
-    textSize(blobs[i].r/3);
-    text(rands[i], blobs[i].x, blobs[i].y + (blobs[i].r/10));   
+      //text 
+      fill(0);
+      textAlign(CENTER);
+      textSize(blobs[i].r/3);
+      text(rands[Math.floor(Math.random()*rands.length)+1], blobs[i].x, blobs[i].y + (blobs[i].r/10)); 
+    }  
     // blobs[i].show();
     // if (blob.eats(blobs[i])) {
     //   blobs.splice(i, 1);
