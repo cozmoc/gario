@@ -48,7 +48,7 @@ function draw() {
   for (var i = blobs.length - 1; i >= 0; i--) {
     var id = blobs[i].id;
     if (id !== socket.id) {
-      fill(255, 0, 0);
+      fill(blobs[i].c);
       ellipse(blobs[i].x, blobs[i].y, blobs[i].r * 2, blobs[i].r * 2);
       //text 
       fill(0);
