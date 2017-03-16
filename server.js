@@ -81,7 +81,13 @@ io.sockets.on('connection',
 
 
     socket.on('disconnect', function() {
-      console.log("Client has disconnected");
+      console.log("Client" + socket.id + "has disconnected," + blobs[0].id);
+        for (i = 0; i < blobs.length; i++) {
+            if (blobs[i].id == socket.id) {
+                blobs.splice(i, 1);
+                console.log(blobs);
+            }
+        }
     });
   }
 );
