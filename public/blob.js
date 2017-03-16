@@ -37,6 +37,6 @@ function Blob(x, y, r, n, c) {
     fill(0);
     textAlign(CENTER);
     textSize(this.r/3);
-    text(this.n, this.x, this.y + (this.r/10));
+    text(this.n, this.pos.x, this.pos.y + (this.r/10));
   }
 }
