@@ -57,7 +57,7 @@ function draw() {
 
       fill(0);
       textAlign(CENTER);
-      textSize((blobs[i].r/10));
+      textSize(blobs[i].r);
       text(rands[i], blobs[i].x, blobs[i].y + (blobs[i].r/10));
     }
     // blobs[i].show();
