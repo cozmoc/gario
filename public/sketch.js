@@ -13,6 +13,8 @@ var zoom = 1;
 
 function setup() {
   createCanvas(1000, 1000);
+  canvas.position(300, 50);
+
   // Start a socket connection to the server
   // Some day we would run this server somewhere else
   socket = io.connect('http://gario.herokuapp.com');
