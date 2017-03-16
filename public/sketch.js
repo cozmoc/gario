@@ -12,7 +12,7 @@ var blobs = [];
 var zoom = 1;
 
 function setup() {
-  createCanvas(1000, 1000);
+  var canvas = createCanvas(1000, 1000);
   canvas.position(300, 50);
 
   // Start a socket connection to the server
