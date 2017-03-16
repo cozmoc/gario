@@ -10,6 +10,7 @@ var blob;
 
 var blobs = [];
 var zoom = 1;
+var rands=["sameer","sob7i","amer","stupid","ahmad","yousef","lindsey"]
 
 function setup() {
   var canvas = createCanvas(1000, 1000);
@@ -57,7 +58,7 @@ function draw() {
       fill(0);
       textAlign(CENTER);
       textSize(4);
-      text(blobs[i].id, blobs[i].x, blobs[i].y + blobs[i].r);
+      text(rands[i]);
     }
     // blobs[i].show();
     // if (blob.eats(blobs[i])) {
