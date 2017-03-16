@@ -37,7 +37,7 @@ function setup() {
 
 function draw() {
   background(0);
-  console.log(blob.pos.x, blob.pos.y);
+  //console.log(blob.pos.x, blob.pos.y);
 
   translate(width / 2, height / 2);
   var newzoom = 64 / blob.r;
