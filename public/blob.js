@@ -1,11 +1,7 @@
-// Daniel Shiffman
-// http://codingtra.in
-// http://patreon.com/codingtrain
-// Code for: https://youtu.be/ZjVyKXp9hec
-
-function Blob(x, y, r) {
+function Blob(x, y, r, n) {
   this.pos = createVector(x, y);
   this.r = r;
+  this.name = n;
   this.vel = createVector(0, 0);
 
   this.update = function() {

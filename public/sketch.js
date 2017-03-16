@@ -1,16 +1,10 @@
-// Daniel Shiffman
-// http://codingtra.in
-// http://patreon.com/codingtrain
-// Code for: https://youtu.be/ZjVyKXp9hec
-
-// Keep track of our socket connection
 var socket;
 
 var blob;
 
 var blobs = [];
 var zoom = 1;
-var rands=["sameer","sob7i","amer","stupid","ahmad","yousef","lindsey"]
+var rands=["Sameer","Sob7i","Amer","Stupid","Ahmad","Yousef","Lindsey"]
 
 function setup() {
   var canvas = createCanvas(1000, 1000);
@@ -21,7 +15,7 @@ function setup() {
   socket = io.connect('http://gario.herokuapp.com');
 
 
-  blob = new Blob(random(width), random(height), random(8, 24));
+  blob = new Blob(random(width), random(height), random(8, 24),rands[Math.floor(Math.random()*rands.length)]);
   // Make a little object with  and y
   var data = {
     x: blob.pos.x,
@@ -57,7 +51,7 @@ function draw() {
       fill(0);
       textAlign(CENTER);
       textSize(blobs[i].r/3);
-      text(rands[Math.floor(Math.random()*rands.length)+1], blobs[i].x, blobs[i].y + (blobs[i].r/10)); 
+      text(blobs[i].name, blobs[i].x, blobs[i].y + (blobs[i].r/10)); 
     }  
     // blobs[i].show();
     // if (blob.eats(blobs[i])) {
