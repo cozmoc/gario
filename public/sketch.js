@@ -56,10 +56,10 @@ function draw() {
       textSize(4);
       text(blobs[i].id, blobs[i].x, blobs[i].y + blobs[i].r);
     }
-    blobs[i].show();
-    if (blob.eats(blobs[i])) {
-      blobs.splice(i, 1);
-    }
+    // blobs[i].show();
+    // if (blob.eats(blobs[i])) {
+    //   blobs.splice(i, 1);
+    // }
   }
 
 
