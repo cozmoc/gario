@@ -71,6 +71,7 @@ function draw() {
       for (var j = 0 ; j < eaten.length ; j++) {
         if (blobs[i].id === eaten[j]){
           blobs[i].dead=true;
+          blob.update();
           // blobs.splice(i, 1);
         }
       }
