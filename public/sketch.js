@@ -1,7 +1,7 @@
 var socket;
 
 var blob;
-
+var eaten=[];
 var blobs = [];
 var zoom = 1;
 var rands=["Pizza","Pasta","Olive","Falafel","BBQ","Cupcake","Donut","Sushi","Jelly","Noodles","Toast","Waffles","Yogurt"]
@@ -56,20 +56,19 @@ function draw() {
       textSize(blobs[i].r/3);
       text(blobs[i].n, blobs[i].x, blobs[i].y + (blobs[i].r/10));
       
-      if (blob.eaten(blobs[i])) {
-        socket.io.disconnect();
-        //alert("you're eaten bruh");
-        for (var i = blobs.length - 1; i >= 0; i--) {
-          if (blobs[i].id === socket.id){
-            blobs.splice(i, 1);
-          }
-        }
-        setTimeout(function(){  
-          socket.io.reconnect();
-        },1000)
+      if (blob.eats(blobs[i])) {
+        eaten.push(blobs[i]);
+        console.log('eaten: '+ eaten)
       }
 
-    }  
+      for (var j = 0 ; j < eaten.length ; j++) {
+        if (blobs[i].id === eaten[j].id){
+          blobs.splice(i, 1);
+        }
+      }
+
+    }
+
     // blobs[i].show();
     // if (blob.eats(blobs[i])) {
     //   blobs.splice(i, 1);

@@ -14,12 +14,12 @@ function Blob(x, y, r, n, c) {
     this.pos.add(this.vel);
   }
 
-  this.eaten = function(other) {
+  this.eats = function(other) {
     if ( (Math.abs(this.pos.x - other.x) <= (this.r+other.r)/2) && (Math.abs(this.pos.y - other.y) <= (this.r+other.r)/2)) {
       if (other.r < this.r) {
         //var sum = PI * this.r * this.r + PI * other.r * other.r;
         //this.r = sqrt(sum / PI);
-        //this.r += other.r;
+        this.r += other.r;
         return true;
       } else {
         return false;
