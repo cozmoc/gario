@@ -1,7 +1,7 @@
 var socket;
 
 var blob;
-var eaten=[];
+
 var blobs = [];
 var zoom = 1;
 var rands=["Pizza","Pasta","Olive","Falafel","BBQ","Cupcake","Donut","Sushi","Jelly","Noodles","Toast","Waffles","Yogurt"]
@@ -23,9 +23,7 @@ function setup() {
     y: blob.pos.y,
     r: blob.r,
     n: blob.n,
-    c: blob.c,
-    dead: blob.dead,
-    ate: blob.ate
+    c: blob.c
   };
   socket.emit('start', data);
 
@@ -47,9 +45,6 @@ function draw() {
   scale(zoom);
   translate(-blob.pos.x, -blob.pos.y);
 
-  if (blob.dead){
-    window.location.reload();
-  }
   for (var i = blobs.length - 1; i >= 0; i--) {
     var id = blobs[i].id;
     if (id !== socket.id) {
@@ -60,25 +55,10 @@ function draw() {
       textAlign(CENTER);
       textSize(blobs[i].r/3);
       text(blobs[i].n, blobs[i].x, blobs[i].y + (blobs[i].r/10));
-      
-      if (blob.eats(blobs[i])) {
-        if (!blob.ate.includes(blobs[i].id)){
-          blob.r += blobs[i].r;
-          blob.ate.push(blobs[i].id);   
-        }
-        console.log('eaten: '+ JSON.stringify(eaten))
+      if (blob.eats(blobs[i].x,blobs[i].y,blobs[i].r)) {
+        blobs[i]=blob.kill(blobs[i])
       }
-
-      for (var j = 0 ; j < eaten.length ; j++) {
-        if (blob.id === eaten[j]){
-          blob.dead=true;
-          blob.update();
-          // blobs.splice(i, 1);
-        }
-      }
-
-    }
-
+    }  
     // blobs[i].show();
     // if (blob.eats(blobs[i])) {
     //   blobs.splice(i, 1);
@@ -98,9 +78,7 @@ function draw() {
     y: blob.pos.y,
     r: blob.r,
     n: blob.n,
-    c: blob.c,
-    dead: blob.dead,
-    ate: blob.ate
+    c: blob.c
   };
   socket.emit('update', data);
 

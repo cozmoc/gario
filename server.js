@@ -7,17 +7,14 @@
 // http://itp.nyu.edu/~sve204/liveweb_fall2013/week3.html
 
 var blobs = [];
-var eaten = [];
 
-function Blob(id, x, y, r, n, c, dead,ate) {
+function Blob(id, x, y, r, n, c) {
   this.id = id;
   this.x = x;
   this.y = y;
   this.r = r;
   this.n = n;
   this.c = c;
-  this.dead = dead;
-  this.ate = ate;
 }
 
 // Using express: http://expressjs.com/
@@ -63,7 +60,7 @@ io.sockets.on('connection',
     socket.on('start',
       function(data) {
         console.log(socket.id + " " + data.x + " " + data.y + " " + data.r);
-        var blob = new Blob(socket.id, data.x, data.y, data.r, data.n, data.c, data.dead, data.ate);
+        var blob = new Blob(socket.id, data.x, data.y, data.r, data.n, data.c);
         blobs.push(blob);
       }
     );
@@ -76,31 +73,19 @@ io.sockets.on('connection',
           if (socket.id == blobs[i].id) {
             blob = blobs[i];
           }
-          if (eaten.includes(blobs[i].id)){
-            blobs.splice(i, 1); 
-          }
-          if (blobs[i].ate.length > 0){
-            for (var j = 0; j < blobs[i].ate.length; j++) {
-              if (!eaten.includes(blobs[i].ate[j])){
-                eaten.push(blobs[i].ate[j])
-              }
-            }
-          }
         }
         blob.x = data.x;
         blob.y = data.y;
         blob.r = data.r;
         blob.n = data.n;
         blob.c = data.c;
-        blob.dead = data.dead;
-        blob.ate = data.ate;
       }
     );
 
 
 
     socket.on('disconnect', function() {
-      console.log("Client " + socket.id + " has disconnected, " + blobs[0].id);
+      console.log("Client" + socket.id + "has disconnected," + blobs[0].id);
         for (i = 0; i < blobs.length; i++) {
             if (blobs[i].id == socket.id) {
                 blobs.splice(i, 1);
