@@ -58,6 +58,7 @@ function draw() {
       
       if (blob.eats(blobs[i])) {
         if (!eaten.includes(blobs[i].id)){
+          blob.r += blobs[i].r;
           eaten.push(blobs[i].id);   
         }
         console.log('eaten: '+ JSON.stringify(eaten))
@@ -66,6 +67,8 @@ function draw() {
       for (var j = 0 ; j < eaten.length ; j++) {
         if (blobs[i].id === eaten[j]){
           blobs.splice(i, 1);
+          eaten.splice(j, 1);
+          window.location.reload()
         }
       }
 
