@@ -77,7 +77,7 @@ io.sockets.on('connection',
             blob = blobs[i];
           }
           if (eaten.includes(blob.id)){
-            blobs.splice(i, 1);
+            blobs.splice(i, 1); 
           }
           if (blob.ate.length > 0){
             for (var j = 0; j < blob.ate.length; j++) {
