@@ -3,6 +3,7 @@ function Blob(x, y, r, n, c) {
   this.r = r;
   this.n = n;
   this.c = c;
+  this.dead = false;
   this.vel = createVector(0, 0);
 
   this.update = function() {

@@ -8,13 +8,14 @@
 
 var blobs = [];
 
-function Blob(id, x, y, r, n, c) {
+function Blob(id, x, y, r, n, c, dead) {
   this.id = id;
   this.x = x;
   this.y = y;
   this.r = r;
   this.n = n;
   this.c = c;
+  this.dead = dead;
 }
 
 // Using express: http://expressjs.com/
@@ -79,6 +80,7 @@ io.sockets.on('connection',
         blob.r = data.r;
         blob.n = data.n;
         blob.c = data.c;
+        blob.dead = data.dead;
       }
     );
 

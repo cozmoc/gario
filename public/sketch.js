@@ -23,7 +23,8 @@ function setup() {
     y: blob.pos.y,
     r: blob.r,
     n: blob.n,
-    c: blob.c
+    c: blob.c,
+    dead: blob.dead
   };
   socket.emit('start', data);
 
@@ -45,6 +46,9 @@ function draw() {
   scale(zoom);
   translate(-blob.pos.x, -blob.pos.y);
 
+  if (blob.dead){
+    window.location.reload();
+  }
   for (var i = blobs.length - 1; i >= 0; i--) {
     var id = blobs[i].id;
     if (id !== socket.id) {
@@ -66,9 +70,8 @@ function draw() {
 
       for (var j = 0 ; j < eaten.length ; j++) {
         if (blobs[i].id === eaten[j]){
-          blobs.splice(i, 1);
-          eaten.splice(j, 1);
-          window.location.reload()
+          blobs[i].dead=true;
+          // blobs.splice(i, 1);
         }
       }
 
@@ -93,7 +96,8 @@ function draw() {
     y: blob.pos.y,
     r: blob.r,
     n: blob.n,
-    c: blob.c
+    c: blob.c,
+    dead: blob.dead
   };
   socket.emit('update', data);
 
