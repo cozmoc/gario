@@ -63,7 +63,7 @@ io.sockets.on('connection',
     socket.on('start',
       function(data) {
         console.log(socket.id + " " + data.x + " " + data.y + " " + data.r);
-        var blob = new Blob(socket.id, data.x, data.y, data.r, data.n, data.c);
+        var blob = new Blob(socket.id, data.x, data.y, data.r, data.n, data.c, data.dead, data.ate);
         blobs.push(blob);
       }
     );
