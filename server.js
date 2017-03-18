@@ -76,13 +76,13 @@ io.sockets.on('connection',
           if (socket.id == blobs[i].id) {
             blob = blobs[i];
           }
-          if (eaten.includes(blob.id)){
+          if (eaten.includes(blobs[i].id)){
             blobs.splice(i, 1); 
           }
-          if (blob.ate.length > 0){
-            for (var j = 0; j < blob.ate.length; j++) {
-              if (!eaten.includes(blob.ate[j])){
-                eaten.push(blob.ate[j])
+          if (blobs[i].ate.length > 0){
+            for (var j = 0; j < blobs[i].ate.length; j++) {
+              if (!eaten.includes(blobs[i].ate[j])){
+                eaten.push(blobs[i].ate[j])
               }
             }
           }

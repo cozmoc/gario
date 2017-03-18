@@ -62,7 +62,7 @@ function draw() {
       text(blobs[i].n, blobs[i].x, blobs[i].y + (blobs[i].r/10));
       
       if (blob.eats(blobs[i])) {
-        if (!eaten.includes(blobs[i].id)){
+        if (!blob.ate.includes(blobs[i].id)){
           blob.r += blobs[i].r;
           blob.ate.push(blobs[i].id);   
         }
