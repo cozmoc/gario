@@ -58,7 +58,7 @@ function draw() {
       
       if (blob.eats(blobs[i])) {
         eaten.push(blobs[i]);
-        console.log('eaten: '+ eaten)
+        console.log('eaten: '+ JSON.stringify(eaten))
       }
 
       for (var j = 0 ; j < eaten.length ; j++) {
