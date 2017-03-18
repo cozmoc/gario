@@ -55,9 +55,15 @@ function draw() {
       textAlign(CENTER);
       textSize(blobs[i].r/3);
       text(blobs[i].n, blobs[i].x, blobs[i].y + (blobs[i].r/10));
-      if (blob.eats(blobs[i].x,blobs[i].y,blobs[i].r)) {
-        blobs[i]=blob.kill(blobs[i])
+      
+      if (blob.eaten(blobs[i])) {
+        socket.io.disconnect();
+        alert("you're eaten bruh");
+        setInterval(function(){
+          socket.io.reconnect();
+        },1000)
       }
+
     }  
     // blobs[i].show();
     // if (blob.eats(blobs[i])) {

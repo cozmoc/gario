@@ -14,9 +14,9 @@ function Blob(x, y, r, n, c) {
     this.pos.add(this.vel);
   }
 
-  this.eats = function(otherx,othery,otherr) {
-    if ( (Math.abs(this.pos.x - otherx) <= this.r+otherr) && (Math.abs(this.pos.y - othery) <= this.r+otherr)) {
-      if (otherr < this.r) {
+  this.eaten = function(other) {
+    if ( (Math.abs(this.pos.x - other.x) <= (this.r+other.r)/2) && (Math.abs(this.pos.y - other.y) <= (this.r+other.r)/2)) {
+      if (other.r > this.r) {
         //var sum = PI * this.r * this.r + PI * other.r * other.r;
         //this.r = sqrt(sum / PI);
         //this.r += other.r;
@@ -27,9 +27,10 @@ function Blob(x, y, r, n, c) {
     }
   }
 
-  this.kill = function(other){
-    return new Blob(random(width), random(height), random(8, 24),rands[Math.floor(Math.random()*rands.length)],colors[Math.floor(Math.random()*colors.length)]);
-  }
+  // this.kill = function(other){
+  //   this.r += other.r;
+  //   out.push(other);
+  // }
 
   this.constrain = function() {
     blob.pos.x = constrain(blob.pos.x, -width / 4, width / 4);
