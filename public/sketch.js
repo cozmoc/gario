@@ -57,12 +57,14 @@ function draw() {
       text(blobs[i].n, blobs[i].x, blobs[i].y + (blobs[i].r/10));
       
       if (blob.eats(blobs[i])) {
-        eaten.push(blobs[i]);
+        if (!eaten.includes(blobs[i].id)){
+          eaten.push(blobs[i].id);   
+        }
         console.log('eaten: '+ JSON.stringify(eaten))
       }
 
       for (var j = 0 ; j < eaten.length ; j++) {
-        if (blobs[i].id === eaten[j].id){
+        if (blobs[i].id === eaten[j]){
           blobs.splice(i, 1);
         }
       }
