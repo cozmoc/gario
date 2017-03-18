@@ -4,6 +4,7 @@ function Blob(x, y, r, n, c) {
   this.n = n;
   this.c = c;
   this.dead = false;
+  this.ate=[];
   this.vel = createVector(0, 0);
 
   this.update = function() {
