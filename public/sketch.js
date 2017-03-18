@@ -59,7 +59,7 @@ function draw() {
       if (blob.eaten(blobs[i])) {
         socket.io.disconnect();
         alert("you're eaten bruh");
-        setInterval(function(){
+        setTimeout(function(){
           socket.io.reconnect();
         },1000)
       }
