@@ -58,8 +58,13 @@ function draw() {
       
       if (blob.eaten(blobs[i])) {
         socket.io.disconnect();
-        alert("you're eaten bruh");
-        setTimeout(function(){
+        //alert("you're eaten bruh");
+        for (var i = blobs.length - 1; i >= 0; i--) {
+          if (blobs[i].id === socket.id){
+            blobs.splice(i, 1);
+          }
+        }
+        setTimeout(function(){  
           socket.io.reconnect();
         },1000)
       }
