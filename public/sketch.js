@@ -4,6 +4,7 @@ var blob;
 var blobs = [];
 var eaten = [];
 var zoom = 1;
+var once=true;
 var rands=["Pizza","Pasta","Olive","Falafel","BBQ","Cupcake","Donut","Sushi","Jelly","Noodles","Toast","Waffles","Yogurt"]
 var colors = ['rgb(66, 134, 244)','rgb(65, 244, 68)','rgb(239, 187, 31)','rgb(198, 119, 255)','rgb(255, 119, 221)']
 // var colors = ['rgb(100%,0%,10%)','rgb(10%,10%,10%)','rgb(50%,10%,40%)','rgb(0%,20%,70%)','rgb(0%,80%,10%)','rgb(70%,60%,10%)','rgb(12%,4%,80%)','rgb(50%,50%,30%)','rgb(90%,40%,20%)']
@@ -85,7 +86,8 @@ function draw() {
       blob.dead=true;
     }
 
-    if (blob.dead){
+    if (blob.dead && once){
+      once=false;
       window.location.reload();
     }
   }
