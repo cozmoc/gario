@@ -1,20 +1,13 @@
-// Daniel Shiffman
-// http://codingtra.in
-// http://patreon.com/codingtrain
-// Code for: https://youtu.be/ZjVyKXp9hec
-
-// Based off of Shawn Van Every's Live Web
-// http://itp.nyu.edu/~sve204/liveweb_fall2013/week3.html
-
 var blobs = [];
-
-function Blob(id, x, y, r, n, c) {
+function Blob(id, x, y, r, n, c, e, dead) {
   this.id = id;
   this.x = x;
   this.y = y;
   this.r = r;
   this.n = n;
   this.c = c;
+  this.e = e;
+  this.dead = dead;
 }
 
 // Using express: http://expressjs.com/
@@ -60,7 +53,7 @@ io.sockets.on('connection',
     socket.on('start',
       function(data) {
         console.log(socket.id + " " + data.x + " " + data.y + " " + data.r);
-        var blob = new Blob(socket.id, data.x, data.y, data.r, data.n, data.c);
+        var blob = new Blob(socket.id, data.x, data.y, data.r, data.n, data.c , data.e, data.dead);
         blobs.push(blob);
       }
     );
@@ -79,13 +72,21 @@ io.sockets.on('connection',
         blob.r = data.r;
         blob.n = data.n;
         blob.c = data.c;
+        blob.e = data.e;
+        blob.dead = data.dead;
       }
     );
 
-
+    var rands=["Pizza","Pasta","Olive","Falafel","BBQ","Cupcake","Donut","Sushi","Jelly","Noodles","Toast","Waffles","Yogurt"]
+    var colors = ['rgb(66, 134, 244)','rgb(65, 244, 68)','rgb(239, 187, 31)','rgb(198, 119, 255)','rgb(255, 119, 221)']
+    var num=0;
+    setInterval(function(){
+      num++;
+      blobs.push(new Blob("small"+num, Math.floor(Math.random()*1000), Math.floor(Math.random()*1000), 2,"",colors[Math.floor(Math.random()*colors.length)],[],false));
+    },500)
 
     socket.on('disconnect', function() {
-      console.log("Client" + socket.id + "has disconnected," + blobs[0].id);
+      console.log("Client " + socket.id + " has disconnected, with ID " + blobs[0].id);
         for (i = 0; i < blobs.length; i++) {
             if (blobs[i].id == socket.id) {
                 blobs.splice(i, 1);

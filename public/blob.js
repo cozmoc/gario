@@ -1,9 +1,11 @@
-function Blob(x, y, r, n, c) {
+function Blob(x, y, r, n, c, e, dead) {
   this.pos = createVector(x, y);
   this.r = r;
   this.n = n;
   this.c = c;
   this.vel = createVector(0, 0);
+  this.e = e;
+  this.dead = dead;
 
   this.update = function() {
     var newvel = createVector(mouseX - width / 2, mouseY - height / 2);
@@ -14,21 +16,17 @@ function Blob(x, y, r, n, c) {
     this.pos.add(this.vel);
   }
 
-  this.eats = function(otherx,othery,otherr) {
-    if ( (Math.abs(this.pos.x - otherx) <= this.r+otherr) && (Math.abs(this.pos.y - othery) <= this.r+otherr)) {
-      if (otherr < this.r) {
+  this.eats = function(other) {
+    if ( (Math.abs(this.pos.x - other.x) <= this.r+other.r) && (Math.abs(this.pos.y - other.y) <= this.r+other.r)) {
+      if (other.r < this.r) {
         //var sum = PI * this.r * this.r + PI * other.r * other.r;
         //this.r = sqrt(sum / PI);
-        //this.r += other.r;
+        // this.r += other.r;
         return true;
       } else {
         return false;
       }
     }
-  }
-
-  this.kill = function(other){
-    return new Blob(random(width), random(height), random(8, 24),rands[Math.floor(Math.random()*rands.length)],colors[Math.floor(Math.random()*colors.length)]);
   }
 
   this.constrain = function() {
@@ -38,10 +36,17 @@ function Blob(x, y, r, n, c) {
 
   this.show = function() {
     fill(this.c);
+    noStroke();
     ellipse(this.pos.x, this.pos.y, this.r * 2, this.r * 2);
     fill(0);
     textAlign(CENTER);
     textSize(this.r/3);
     text(this.n, this.pos.x, this.pos.y + (this.r/10));
-  }
+
+    fill(0);
+    textAlign(CENTER);
+    textSize(this.r/3);
+    text("Score: " + this.e.length , this.pos.x, this.pos.y -(this.r*7));
+
+  }  
 }
