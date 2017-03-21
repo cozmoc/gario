@@ -8,7 +8,7 @@ function Blob(id, x, y, r, n, c, e, dead) {
   this.c = c;
   this.e = e;
   this.dead = dead;
-}
+} 
 
 // Using express: http://expressjs.com/
 var express = require('express');
