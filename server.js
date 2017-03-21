@@ -83,7 +83,7 @@ io.sockets.on('connection',
     setInterval(function(){
       if(blobs.length<300){
         num++;
-        blobs.push(new Blob("small"+num, Math.floor(Math.random()*1000), Math.floor(Math.random()*1000), 1,"",colors[Math.floor(Math.random()*colors.length)],[],false));
+        blobs.push(new Blob("small"+num, Math.floor(Math.random()*500)-250, Math.floor(Math.random()*500)-250, 1,"",colors[Math.floor(Math.random()*colors.length)],[],false));
       }
     },500)
 
