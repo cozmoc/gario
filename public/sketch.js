@@ -60,6 +60,8 @@ function draw() {
         textAlign(CENTER);
         textSize(blobs[i].r/3);
         text(blobs[i].n, blobs[i].x, blobs[i].y + (blobs[i].r/10));
+      }else{
+        blobs.splice(i, 1);
       }
       if (!blob.e.includes(blobs[i].id) && blob.eats(blobs[i])) {
           blob.r += blobs[i].r/5;
@@ -90,6 +92,7 @@ function draw() {
       once=false;
       window.location.reload();
     }
+
   }
 
 

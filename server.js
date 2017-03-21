@@ -81,8 +81,10 @@ io.sockets.on('connection',
     var colors = ['rgb(66, 134, 244)','rgb(65, 244, 68)','rgb(239, 187, 31)','rgb(198, 119, 255)','rgb(255, 119, 221)']
     var num=0;
     setInterval(function(){
-      num++;
-      blobs.push(new Blob("small"+num, Math.floor(Math.random()*1000), Math.floor(Math.random()*1000), 2,"",colors[Math.floor(Math.random()*colors.length)],[],false));
+      if(blobs.length<700){
+        num++;
+        blobs.push(new Blob("small"+num, Math.floor(Math.random()*700), Math.floor(Math.random()*700), 2,"",colors[Math.floor(Math.random()*colors.length)],[],false));
+      }
     },500)
 
     socket.on('disconnect', function() {
